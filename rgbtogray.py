@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-img=cv2.imread("lena5.jpg")
+img=cv2.imread("lena5.jpg")# reading original coloured image
 gray_img=[]
 for row in img:
     gray_row=[]
@@ -12,7 +12,8 @@ for row in img:
         gray=min(max(gray,0),255)
         gray_row.append(gray)
     gray_img.append(gray_row)
-gray_img=np.array(gray_img,dtype=np.uint8)
+gray_img=np.array(gray_img,dtype=np.uint8)# converting list to numoy array
+# converting gray image to black and white
 bw_img=[]
 for row1 in gray_img:
     bw_row=[]
@@ -23,6 +24,7 @@ for row1 in gray_img:
             bw_row.append(0)
     bw_img.append(bw_row)
 bw_img1=np.array(bw_img,dtype=np.uint8)
+# extracting particular channel from the coloured image
 blimg=img.copy()
 blimg[:,:,2]=0
 blimg[:,:,1]=0
